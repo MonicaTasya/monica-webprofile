@@ -10,8 +10,8 @@ export default function Home() {
   useEffect(() => {
     const init = async () => {
       try {
-        const baseURL = process.env.NEXT_PUBLIC_API_URL || "";
-        const response = await axios.get(`${baseURL}/api/siswa`);
+        // Pakai relative path supaya otomatis HTTPS di production
+        const response = await axios.get("/api/siswa");
         console.log("API Response:", response.data);
         setData(response.data.docs);
       } catch (err) {
@@ -25,7 +25,8 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       {error ? (
         <div>
-          <h1>Error: {error}</h1>
+          <h1 className="text-red-500">Error: {error}</h1>
+          <p className="text-sm mt-2">Check browser console for details</p>
         </div>
       ) : data && data.length > 0 && data[0].foto ? (
         <>
