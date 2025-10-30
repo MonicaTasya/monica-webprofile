@@ -2,37 +2,24 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
+axios.defaults.url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [data, setData] = useState();
-  const [error, setError] = useState(null);
-
   useEffect(() => {
     const init = async () => {
-      try {
-        // Pakai relative path supaya otomatis HTTPS di production
-        const response = await axios.get("/api/siswa");
-        console.log("API Response:", response.data);
-        setData(response.data.docs);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError(err.message);
-      }
+      const response = await axios.get("api/siswa");
+      setData(response.data.docs);
     };
     init();
   }, []);
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      {error ? (
-        <div>
-          <h1 className="text-red-500">Error: {error}</h1>
-          <p className="text-sm mt-2">Check browser console for details</p>
-        </div>
-      ) : data && data.length > 0 && data[0].gambar ? (
+      {data ? (
         <>
           <pre>{JSON.stringify(data, null, 2)}</pre>
           <Image
-            src={data[0].gambar.url}
+            src={data[0]["gambar"].url}
             alt="gambar"
             width={500}
             height={500}
