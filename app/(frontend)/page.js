@@ -19,8 +19,8 @@ export default function Home() {
         <>
           <pre>{JSON.stringify(data, null, 2)}</pre>
           <Image
-            src={data[0]["gambar"].url}
-            alt="gambar"
+            src={data[0]["foto"].url}
+            alt="foto"
             width={500}
             height={500}
           />
