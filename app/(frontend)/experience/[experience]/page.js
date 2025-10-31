@@ -4,9 +4,9 @@ import Image from "next/image";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 export default async function ExperienceDetail({ params }) {
-  const { slug } = params;
+  const { experience } = params;
   const res = await fetch(
-    `${baseUrl}/api/experiences?where[slug][equals]=${slug}`,
+    `${baseUrl}/api/experiences?where[slug][equals]=${experience}`,
     { cache: "no-store" } // opsional, biar gak ke-cache
   );
   const data = await res.json();
