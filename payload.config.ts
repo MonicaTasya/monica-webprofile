@@ -56,14 +56,14 @@ export default buildConfig({
             },
           },
         },
-        // imagesExp: {
-        //   prefix: "gambar-images",
-        //   signedDownloads: {
-        //     shouldUseSignedURL: ({ collection, filename, req }) => {
-        //       return filename.endsWith(".mp4");
-        //     },
-        //   },
-        // },
+        imagesExp: {
+          prefix: "gambar-images",
+          signedDownloads: {
+            shouldUseSignedURL: ({ collection, filename, req }) => {
+              return filename.endsWith(".mp4");
+            },
+          },
+        },
       },
       config: {
         endpoint: process.env.S3_ENDPOINT,
