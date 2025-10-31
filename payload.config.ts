@@ -21,14 +21,10 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL,
-      ssl: process.env.SSL_CA
-        ? {
-            rejectUnauthorized: true,
-            ca: process.env.SSL_CA,
-          }
-        : {
-            rejectUnauthorized: false,
-          },
+      ssl: {
+        rejectUnauthorized: true,
+        ca: process.env.SSL_CA,
+      },
     },
   }),
   plugins: [
