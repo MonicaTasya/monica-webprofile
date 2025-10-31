@@ -3,15 +3,17 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
-import { Siswa } from "./src/collection/siswa";
-import { Gambar } from "./src/collection/gambar";
+import { Experience } from "./src/collection/experience";
+import { gambarExp } from "./src/collection/gambarExp";
+import { Project } from "./src/collection/project";
+import { gambarProj } from "./src/collection/gambarProj";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
   // Define and configure your collections in this array
-  collections: [Siswa, Gambar],
+  collections: [Experience, gambarExp, Project, gambarProj],
 
   // Payload Secret
   secret: process.env.PAYLOAD_SECRET || "",
@@ -29,8 +31,16 @@ export default buildConfig({
     // Untuk koneksi ke Amazon S3
     s3Storage({
       collections: {
-        gambar: {
-          prefix: "custom-prefix",
+        gambarExp: {
+          prefix: "gambar-experience",
+          signedDownloads: {
+            shouldUseSignedURL: ({ collection, filename, req }) => {
+              return filename.endsWith(".mp4");
+            },
+          },
+        },
+        gambarProj: {
+          prefix: "gambar-project",
           signedDownloads: {
             shouldUseSignedURL: ({ collection, filename, req }) => {
               return filename.endsWith(".mp4");
