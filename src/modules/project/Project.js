@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Card from "../../component/Elemen/Card";
 import { HS1 } from "../../component/Elemen/Typography";
+import axios from "../../lib/axiosInstance";
 
 const Project = () => {
   const [data, setData] = useState([]);

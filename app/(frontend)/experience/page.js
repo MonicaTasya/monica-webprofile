@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import DefaultLayout from "../../../src/component/Layout/DefaultLayout";
 import { HS1 } from "../../../src/component/Elemen/Typography";
 import Card from "../../../src/component/Elemen/Card";
 import { NavbarResolver } from "../../../src/component/Layout/NavbarResolver";
+import axios from "../../../src/lib/axiosInstance";
 
 const Experiences = () => {
   const [data, setData] = useState([]);

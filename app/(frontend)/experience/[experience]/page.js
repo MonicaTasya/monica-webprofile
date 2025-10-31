@@ -1,11 +1,13 @@
 import DefaultLayout from "../../../../src/component/Layout/DefaultLayout";
 import { HS1 } from "../../../../src/component/Elemen/Typography";
 import Image from "next/image";
+const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 export default async function ExperienceDetail({ params }) {
   const { slug } = params;
   const res = await fetch(
-    `http://localhost:3000/api/experiences?where[slug][equals]=${slug}`
+    `${baseUrl}/api/experiences?where[slug][equals]=${slug}`,
+    { cache: "no-store" } // opsional, biar gak ke-cache
   );
   const data = await res.json();
   const exp = data.docs[0];
