@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 import { HS1, HA4 } from "../../component/Elemen/Typography.js";
 import DefaultLayout from "../../component/Layout/DefaultLayout";
 
@@ -6,9 +6,13 @@ const About = () => {
   return (
     <DefaultLayout className="bg-linear-to-b from-[#ACC9FC] to-[#DEEAFF]">
       <div className="flex flex-row justify-between">
-        <div className="bg-gray-600 w-[30vw] h-[30vw] hidden lg:block">
-          sesuatu gitu apa kek:V
-        </div>
+        <Image
+          src="/images/beranda/profile2.webp"
+          alt="about-me"
+          width={400}
+          height={400}
+          className="hidden lg:block w-[30vw] rounded-xl"
+        />
         <div className="flex flex-col">
           <HS1>Little about me</HS1>
           <HA4 className="mt-[1vw] w-full lg:w-[30vw]">

@@ -12,7 +12,12 @@ export default async function ExperienceDetail({ params }) {
   const data = await res.json();
   const exp = data.docs[0];
 
-  if (!exp) return <div className="p-10 text-2xl">Experience not found</div>;
+  if (!exp)
+    return (
+      <div className="flex items-center bg-linear-to-b min-h-screen from-[#ACC9FC] to-[#DEEAFF] justify-center">
+        <HS1>This page still on Progress</HS1>
+      </div>
+    );
 
   return (
     <DefaultLayout className="bg-[#DEEAFF] min-h-screen">
