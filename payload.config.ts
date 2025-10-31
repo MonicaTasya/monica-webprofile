@@ -7,13 +7,22 @@ import { Experience } from "./src/collection/experience";
 import { gambarExp } from "./src/collection/gambarExp";
 import { Project } from "./src/collection/project";
 import { gambarProj } from "./src/collection/gambarProj";
+import { experienceNew } from "./src/collection/experienceNew";
+import { imagesExp } from "./src/collection/imageExp";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
   // Define and configure your collections in this array
-  collections: [Experience, gambarExp, Project, gambarProj],
+  collections: [
+    Experience,
+    gambarExp,
+    Project,
+    gambarProj,
+    experienceNew,
+    imagesExp,
+  ],
 
   // Payload Secret
   secret: process.env.PAYLOAD_SECRET || "",
@@ -41,6 +50,14 @@ export default buildConfig({
         },
         gambarProj: {
           prefix: "gambar-project",
+          signedDownloads: {
+            shouldUseSignedURL: ({ collection, filename, req }) => {
+              return filename.endsWith(".mp4");
+            },
+          },
+        },
+        imagesExp: {
+          prefix: "gambar-images",
           signedDownloads: {
             shouldUseSignedURL: ({ collection, filename, req }) => {
               return filename.endsWith(".mp4");
