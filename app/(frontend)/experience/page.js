@@ -25,11 +25,11 @@ const Experiences = () => {
   }, []);
 
   return (
-    <DefaultLayout className="bg-linear-to-b min-h-screen from-[#ACC9FC] to-[#DEEAFF]">
+    <DefaultLayout className="flex justify-start bg-linear-to-b min-h-screen from-[#ACC9FC] to-[#DEEAFF]">
       <NavbarResolver />
       <HS1>Experience</HS1>
       {error && <div className="text-red-500">Error: {error}</div>}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-[3vw]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[5vw] mt-[5vw]">
         {data.map((exp) => {
           console.log("Experience item:", exp);
           return (

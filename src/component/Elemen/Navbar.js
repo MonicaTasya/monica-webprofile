@@ -1,43 +1,65 @@
 "use client";
 import Link from "next/link";
-import { HA4 } from "./Typography";
+import { HA3 } from "./Typography";
 
 const Navbar = () => {
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "Project", href: "/project" },
+    { name: "Journey", href: "/journey" },
+    { name: "Experience", href: "/experience" },
+  ];
   return (
     <nav className="flex items-center justify-center px-8 py-4 bg-[#DEEAFF] shadow-md fixed top-0 left-0 w-full z-50">
       {/* Menu Links */}
-      <ul className="flex gap-6 text-[#152746] font-medium">
-        <li>
-          <Link href="/">
-            <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
-              Home
-            </HA4>
-          </Link>
-        </li>
-        <li>
-          <Link href="/project">
-            <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
-              Project
-            </HA4>
-          </Link>
-        </li>
-        <li>
-          <Link href="/journey">
-            <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
-              Journey
-            </HA4>
-          </Link>
-        </li>
-        <li>
-          <Link href="/experience">
-            <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
-              Experience
-            </HA4>
-          </Link>
-        </li>
+      <ul className="flex gap-[5vw] text-[#152746]">
+        {menuItems.map((item) => (
+          <li key={item.name}>
+            <Link href={item.href}>
+              <HA3 className="hover:scale-110 lg:text-[1.5vw] duration-300 hover:text-shadow-lg">
+                {item.name}
+              </HA3>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
 };
-
 export default Navbar;
+
+// export default Navbar;
+
+//           <Link href="/">
+//             <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
+//               Home
+//             </HA4>
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/project">
+//             <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
+//               Project
+//             </HA4>
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/journey">
+//             <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
+//               Journey
+//             </HA4>
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/experience">
+//             <HA4 className="hover:scale-110 duration-300 hover:text-shadow-lg">
+//               Experience
+//             </HA4>
+//           </Link>
+//         </li>
+//       </ul>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;

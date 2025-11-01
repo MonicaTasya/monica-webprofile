@@ -31,7 +31,7 @@ const More = () => {
   return (
     <DefaultLayout className="bg-[#DEEAFF]">
       <HS1>What do you want to know about me?</HS1>
-      <div className="flex flex-wrap justify-between gap-4">
+      <div className="flex flex-wrap justify-center gap-[5vw] mt-[3vw] lg:gap-4 ">
         {categories.map((category, index) => (
           <Card
             key={index}

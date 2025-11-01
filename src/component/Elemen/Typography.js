@@ -5,7 +5,31 @@ export const HS1 = ({ className, children, ...props }) => (
   <h1
     className={cn(
       SansitaRegular.className, // font langsung dari next/font/local
-      "text-[5vw] tracking-tight",
+      "text-[7vw] lg:text-[5vw] tracking-tight",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </h1>
+);
+export const HS2 = ({ className, children, ...props }) => (
+  <h1
+    className={cn(
+      SansitaRegular.className, // font langsung dari next/font/local
+      "text-[6vw] lg:text-[4vw] tracking-tight",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </h1>
+);
+export const HS3 = ({ className, children, ...props }) => (
+  <h1
+    className={cn(
+      SansitaRegular.className, // font langsung dari next/font/local
+      "text-[5vw] lg:text-[2vw] tracking-tight",
       className
     )}
     {...props}
@@ -18,7 +42,7 @@ export const HA1 = ({ className, children, ...props }) => (
   <h1
     className={cn(
       AfacadRegular.className,
-      "text-[5vw] tracking-tight",
+      "text-[6vw] tracking-tight",
       className
     )}
     {...props}
@@ -31,7 +55,7 @@ export const HA2 = ({ className, children, ...props }) => (
   <h1
     className={cn(
       AfacadRegular.className,
-      "text-[2vw] tracking-tight",
+      "text-[5vw] tracking-tight",
       className
     )}
     {...props}

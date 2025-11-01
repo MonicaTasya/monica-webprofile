@@ -24,9 +24,9 @@ const Project = () => {
 
   return (
     <>
-      <HS1 className="mb-[5vw]"> Projects</HS1>
+      <HS1> Projects</HS1>
       {error && <p>Error fetching projects: {error}</p>}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-[2vw]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[5vw] mt-[5vw]">
         {data.map((project) => {
           console.log("Project item:", project);
           return (

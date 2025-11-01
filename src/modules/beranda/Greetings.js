@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { HS1, HA1 } from "../../component/Elemen/Typography.js";
+import { HS2, HA1 } from "../../component/Elemen/Typography.js";
 import DefaultLayout from "../../component/Layout/DefaultLayout";
 import Typewriter from "typewriter-effect";
 import Button from "../../component/Elemen/Button";
@@ -8,19 +8,19 @@ import Button from "../../component/Elemen/Button";
 const Greetings = () => {
   return (
     <DefaultLayout className="bg-linear-to-b from-[#DEEAFF] to-[#ACC9FC]">
-      <div className="flex flex-row gap-[2vw] justify-between">
+      <div className="flex flex-row justify-between  items-end">
         <div className="text-start text-[3vw] flex flex-col">
-          <HS1>Hello! I&apos;m</HS1>
+          <HS2>Hello! I&apos;m</HS2>
           <HA1 className="text-[#152746]">Monica Anastasya</HA1>
-          <HS1 className="min-w-[46vw]">
+          <HS2 className="min-w-[46vw]">
             <Typewriter
               options={{
-                strings: ["Undergraduate Student", "Front-end Developer"],
+                strings: ["IT Undergraduate", "Front-end Developer"],
                 autoStart: true,
                 loop: true,
               }}
             />
-          </HS1>
+          </HS2>
           <div className="flex flex-row gap-3">
             <Button name_xs="Download cv" href="/CV_Monica.pdf" />
             <Button name_xs="Contact" href="#Connect" />
