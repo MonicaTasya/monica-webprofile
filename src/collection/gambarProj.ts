@@ -4,9 +4,11 @@ export const gambarProj: CollectionConfig = {
   slug: "gambarProj",
   access: {
     read: () => true, // Allow public read access to images
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   upload: {
-    staticDir: "gambarProj",
     mimeTypes: ["image/*", "video/*"],
   },
   fields: [],
