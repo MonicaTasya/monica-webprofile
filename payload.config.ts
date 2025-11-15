@@ -36,10 +36,11 @@ export default buildConfig({
       },
     },
   }),
-  plugins: [
-    // Untuk koneksi ke Amazon S3
-    s3Storage({
-      collections: {
+  plugins: process.env.S3_ENDPOINT
+    ? [
+        // Untuk koneksi ke Amazon S3
+        s3Storage({
+          collections: {
         gambarExp: {
           prefix: "gambar-experience",
           signedDownloads: {
@@ -77,6 +78,7 @@ export default buildConfig({
       },
       bucket: process.env.S3_BUCKET || "",
     }),
-  ],
+    ]
+  : [],
   sharp,
 });
