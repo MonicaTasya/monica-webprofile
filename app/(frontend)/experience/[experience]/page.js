@@ -4,13 +4,16 @@ import Image from "next/image";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 export default async function ExperienceDetail({ params }) {
-  const { slug } = params;
+  const { experience } = params;
   const res = await fetch(
-    `${baseUrl}/api/experiences?where[slug][equals]=${slug}`,
+    `${baseUrl}/api/experiences?where[slug][equals]=${experience}&depth=2`,
     { cache: "no-store" } // opsional, biar gak ke-cache
   );
   const data = await res.json();
   const exp = data.docs[0];
+
+  console.log("Experience detail:", exp);
+  console.log("Image URL:", exp?.src?.url);
 
   if (!exp)
     return (
@@ -23,13 +26,16 @@ export default async function ExperienceDetail({ params }) {
     <DefaultLayout className="bg-[#DEEAFF] min-h-screen">
       <HS1>{exp.title}</HS1>
       <p className="mt-4">{exp.description}</p>
-      <Image
-        src={exp.src?.url}
-        alt={exp.title}
-        width={500}
-        height={300}
-        className="mt-6 rounded-xl"
-      />
+      {exp.src?.url && (
+        <Image
+          src={exp.src.url}
+          alt={exp.title || "Experience image"}
+          width={500}
+          height={300}
+          className="mt-6 rounded-xl"
+        />
+      )}
+      {!exp.src?.url && <p className="text-red-500">Image URL not found</p>}
     </DefaultLayout>
   );
 }
